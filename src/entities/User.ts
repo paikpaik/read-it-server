@@ -2,6 +2,7 @@ import { IsEmail, Length } from "class-validator";
 import { BeforeInsert, Column, Entity, Index, OneToMany } from "typeorm";
 import bcrypt from "bcryptjs";
 import BaseEntity from "./Entity";
+import Post from "./Post";
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -22,7 +23,7 @@ export class User extends BaseEntity {
   password: string;
 
   @OneToMany(() => Post, (post) => post.user)
-  post: Post[];
+  posts: Post[];
 
   @OneToMany(() => Vote, (vote) => votevotesr)
   votes: Vote[];
