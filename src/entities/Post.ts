@@ -1,6 +1,7 @@
 import {
   BeforeInsert,
   Column,
+  Entity,
   Index,
   JoinColumn,
   ManyToOne,
@@ -12,6 +13,7 @@ import User from "./User";
 import { Exclude, Expose } from "class-transformer";
 import { makeId, slugify } from "../utils/helpers";
 
+@Entity("posts")
 export default class Post extends BaseEntity {
   @Index()
   @Column()
