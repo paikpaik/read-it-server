@@ -12,6 +12,8 @@ import Sub from "./Sub";
 import User from "./User";
 import { Exclude, Expose } from "class-transformer";
 import { makeId, slugify } from "../utils/helpers";
+import Comment from "./Comment";
+import Vote from "./Vote";
 
 @Entity("posts")
 export default class Post extends BaseEntity {

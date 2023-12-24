@@ -3,6 +3,7 @@ import { BeforeInsert, Column, Entity, Index, OneToMany } from "typeorm";
 import bcrypt from "bcryptjs";
 import BaseEntity from "./Entity";
 import Post from "./Post";
+import Vote from "./Vote";
 
 @Entity("users")
 export default class User extends BaseEntity {
@@ -14,7 +15,7 @@ export default class User extends BaseEntity {
 
   @Index()
   @Length(3, 32, { message: "사용자 이름은 3자 이상이어야 합니다." })
-  @Column()
+  @Column({ unique: true })
   username: string;
 
   @Index()
@@ -25,7 +26,7 @@ export default class User extends BaseEntity {
   @OneToMany(() => Post, (post) => post.user)
   posts: Post[];
 
-  @OneToMany(() => Vote, (vote) => votevotesr)
+  @OneToMany(() => Vote, (vote) => vote.user)
   votes: Vote[];
 
   @BeforeInsert()

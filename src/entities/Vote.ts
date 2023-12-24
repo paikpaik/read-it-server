@@ -2,8 +2,9 @@ import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import BaseEntity from "./Entity";
 import User from "./User";
 import Post from "./Post";
+import Comment from "./Comment";
 
-@Entity()
+@Entity("votes")
 export default class Vote extends BaseEntity {
   @Column()
   value: number;
